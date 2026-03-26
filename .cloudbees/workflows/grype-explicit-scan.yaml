@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - main
-  # schedule:
-  #   - cron: 45 21 * * 1,4    
+  schedule:
+    - cron: 45 21 * * 1,4    
   workflow_dispatch:
 permissions:
   scm-token-own: read
@@ -18,6 +18,6 @@ jobs:
       - name: checkout Source Code
         uses: cloudbees-io/checkout@v1
       - name: Scan with Grype
-        uses: cloudbees-io/grype-plugin@CBP-35850
+        uses: cloudbees-io/grype-plugin@v1
         with:
           binary-tar-path: ./nginx.tar
